@@ -1,2 +1,3 @@
 MONGO_LOCAL_URI=uri of mongodb installed locally in system
 MONGO_ATLAS_URI=uri of mongodb atlas
+ENVIRONMENT="development" or "production", chooses b/w mongodb local or atlas
