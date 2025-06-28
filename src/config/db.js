@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import chalk from "chalk";
 
 dotenv.config();
 
@@ -10,10 +11,12 @@ const environment =
 
 const connectDB = async () => {
   mongoose.connection.on("error", (error) => {
-    console.log("^^^mongodb connection FAILED");
+    console.log(chalk.bgRed("^^^mongodb connection FAILED, "), error.message);
   });
-  mongoose.connection.on("connected", (message) => {
-    console.log("^^^mongodb connection SUCCESSFULL");
+  mongoose.connection.on("connected", () => {
+    console.log(
+      chalk.black.bold.bgGreenBright("^^^mongodb connection SUCCESSFULL")
+    );
   });
   const connection = await mongoose.connect(environment);
 };
