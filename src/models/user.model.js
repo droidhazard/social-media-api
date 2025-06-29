@@ -27,10 +27,6 @@ const userSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
     },
-    passwordHash: {
-      type: String,
-      required: true,
-    },
     profileImage: {
       type: String,
       default: "",
@@ -67,7 +63,7 @@ const userSchema = new mongoose.Schema(
       type: [mongoose.Schema.Types.ObjectId],
       ref: "User",
     },
-    // * Tokens
+    // * Authentication and Tokens
     refreshToken: {
       type: String,
       default: "",
@@ -75,6 +71,10 @@ const userSchema = new mongoose.Schema(
     accessToken: {
       type: String,
       default: "",
+    },
+    passwordHash: {
+      type: String,
+      required: true,
     },
   },
   {
